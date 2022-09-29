@@ -1,0 +1,15 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/')
+def index():
+  return "Hello Flask"
+
+@app.route('/user/<userid>')
+def user(userid):
+  return "Hello {}".format(userid)
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=3030, debug=True)
